@@ -25,7 +25,7 @@ public class PaymentController {
 
         if(result > 0)
         {
-            return new CommonResult(200,"插入数据库成功,端口号为8001",result);
+            return new CommonResult(200,"插入数据库成功,端口号为8002",result);
         }else{
             return new CommonResult(444,"插入数据库失败",null);
         }
@@ -38,7 +38,7 @@ public class PaymentController {
         Payment payment = paymentService.getPaymentById(id);
         log.info("*****查询结果:{}",payment);
         if (payment != null) {
-            return new CommonResult(200,"查询成功,端口号为8001",payment);
+            return new CommonResult(200,"查询成功,端口号为8002",payment);
         }else{
             return new CommonResult(444,"没有对应记录,查询ID: "+id,null);
         }
