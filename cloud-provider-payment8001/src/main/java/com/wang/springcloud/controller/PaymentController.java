@@ -16,8 +16,8 @@ import java.util.List;
 @RestController
 public class PaymentController {
 
-//    @Value("${server.port}")
-//    private String server_port;
+    @Value("${server.port}")
+    private String server_port;
 
     @Autowired
     PaymentService paymentService;
@@ -62,6 +62,11 @@ public class PaymentController {
                     + element.getUri());
         }
         return this.discoveryClient;
+    }
+
+    @GetMapping("/payment/lb")
+    public String getPaymentLB(){
+        return server_port;
     }
 
 }
