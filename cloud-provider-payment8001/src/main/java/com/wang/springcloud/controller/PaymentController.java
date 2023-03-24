@@ -1,5 +1,6 @@
 package com.wang.springcloud.controller;
 
+import com.mysql.jdbc.TimeUtil;
 import com.wang.springcloud.entities.CommonResult;
 import com.wang.springcloud.entities.Payment;
 import com.wang.springcloud.service.PaymentService;
@@ -11,6 +12,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @RestController
@@ -66,6 +68,14 @@ public class PaymentController {
 
     @GetMapping("/payment/lb")
     public String getPaymentLB(){
+        return server_port;
+    }
+
+
+    @GetMapping("/payment/timeout")
+    public String getTimeOut() throws InterruptedException {
+        System.out.println("*******time out 3s");
+        TimeUnit.SECONDS.sleep(3);
         return server_port;
     }
 
