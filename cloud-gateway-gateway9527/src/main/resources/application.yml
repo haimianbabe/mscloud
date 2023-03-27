@@ -1,0 +1,30 @@
+server:
+  port: 9527
+
+spring:
+  application:
+    name: spring-client-service
+  cloud:
+    gateway:
+      routes:
+      - id: payment_routh1
+#        uri: http://localhost:8001
+        uri: lb://CLOUD-PAYMENT-SERVICE
+        predicates:
+          - Path=/payment/get/**
+      - id: payment_routh2
+        uri: lb://CLOUD-PAYMENT-SERVICE
+        predicates:
+          - Path=/payment/lb/**
+      discovery:
+        locator:
+          enabled: true
+
+eureka:
+  instance:
+    hostname: spring-client-service
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
+    register-with-eureka: true
+    fetch-registry: true

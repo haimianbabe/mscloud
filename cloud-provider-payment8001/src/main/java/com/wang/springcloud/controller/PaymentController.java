@@ -1,6 +1,5 @@
 package com.wang.springcloud.controller;
 
-import com.mysql.jdbc.TimeUtil;
 import com.wang.springcloud.entities.CommonResult;
 import com.wang.springcloud.entities.Payment;
 import com.wang.springcloud.service.PaymentService;
