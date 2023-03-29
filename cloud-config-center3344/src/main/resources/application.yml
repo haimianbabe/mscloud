@@ -13,8 +13,14 @@ spring:
             - springcloud-config
 #          username: 1546413670@qq.com
 #          password: wyp15897889746
-          default-label: main
+          default-label: master
           skip-ssl-validation: true
+  #rabbitmq相关配置
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: admin
+    password: 123
 
 eureka:
   client:
@@ -22,3 +28,9 @@ eureka:
     fetch-registry: true
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
